@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sobre o portal Café Cerrado e formulário de contato para dúvidas e sugestões."
+    />
+    <title>Sobre e Contato — Café Cerrado</title>
+    <link rel="stylesheet" href="assets/css/global.css" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="cabecalho__conteudo">
+        <a href="index.html" class="logo">
+          <span class="logo__icone" aria-hidden="true">☕</span>
+          Café Cerrado
+        </a>
+        <nav aria-label="Navegação principal">
+          <ul class="menu">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="variedades.html">Variedades</a></li>
+            <li><a href="metodos.html">Métodos</a></li>
+            <li><a href="contato.html" class="ativo">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="principal">
+      <section class="hero">
+        <div class="container">
+          <h1>Sobre o projeto e contato</h1>
+          <p>
+            Conheça a proposta do Café Cerrado e envie suas dúvidas, sugestões ou
+            comentários pelo formulário abaixo.
+          </p>
+        </div>
+      </section>
+
+      <section class="secao">
+        <div class="container">
+          <div class="destaque">
+            <div class="destaque__texto">
+              <h2>Sobre o Café Cerrado</h2>
+              <p>
+                O Café Cerrado é um portal educativo criado como trabalho
+                individual da disciplina de Desenvolvimento Web. A proposta é
+                reunir, em um só lugar, informações acessíveis sobre a cultura,
+                as variedades e o preparo do café brasileiro.
+              </p>
+              <p>
+                O projeto foi desenvolvido por
+                <strong>Rodrigo Alysson Oliveira Bastos</strong> utilizando
+                HTML e CSS na primeira versão, com funcionalidades em JavaScript
+                planejadas para a segunda etapa.
+              </p>
+            </div>
+            <div class="destaque__midia">
+              <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=700&q=60"
+                alt="Xícara de café ao lado de grãos sobre a mesa"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao secao--alt">
+        <div class="container">
+          <div class="secao__cabecalho">
+            <h2>Fale com o autor</h2>
+            <p>
+              Preencha os campos abaixo. Na Versão 2, este formulário terá
+              validação automática com JavaScript.
+            </p>
+          </div>
+
+          <form class="formulario" action="#" method="post">
+            <div class="campo">
+              <label for="nome">Nome completo</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Digite seu nome"
+                required
+              />
+            </div>
+
+            <div class="campo">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="voce@exemplo.com"
+                required
+              />
+            </div>
+
+            <div class="campo">
+              <label for="assunto">Assunto</label>
+              <select id="assunto" name="assunto">
+                <option value="duvida">Dúvida</option>
+                <option value="sugestao">Sugestão</option>
+                <option value="elogio">Elogio</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="mensagem">Mensagem</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                placeholder="Escreva sua mensagem"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="botao">Enviar mensagem</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <div class="rodape__conteudo">
+          <div class="rodape__coluna">
+            <h3>Café Cerrado</h3>
+            <p>
+              Portal educativo sobre a cultura, as variedades e o preparo do café
+              brasileiro.
+            </p>
+          </div>
+          <div class="rodape__coluna">
+            <h3>Navegação</h3>
+            <ul>
+              <li><a href="index.html">Início</a></li>
+              <li><a href="variedades.html">Variedades</a></li>
+              <li><a href="metodos.html">Métodos</a></li>
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </div>
+          <div class="rodape__coluna">
+            <h3>Autoria</h3>
+            <p>
+              Desenvolvido por Rodrigo Alysson Oliveira Bastos como trabalho
+              individual da disciplina de Desenvolvimento Web.
+            </p>
+          </div>
+        </div>
+        <div class="rodape__base">
+          <p>&copy; 2026 Café Cerrado. Projeto acadêmico sem fins comerciais.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

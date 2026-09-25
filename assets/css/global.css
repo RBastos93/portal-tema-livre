@@ -1,0 +1,598 @@
+/* ==========================================================================
+   Café Cerrado — Folha de estilo global
+   Autor: Rodrigo Alysson Oliveira Bastos
+   Versão 1 (HTML + CSS)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Variáveis (identidade visual: cores e tipografia)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Paleta inspirada em tons de café e cerrado */
+  --cor-cafe-escuro: #3b2416;
+  --cor-cafe-medio: #6f4e37;
+  --cor-cafe-claro: #b08968;
+  --cor-creme: #f5ede1;
+  --cor-creme-escuro: #e7d8c4;
+  --cor-verde-cerrado: #5c6b4a;
+  --cor-destaque: #c8892f;
+  --cor-texto: #2b2119;
+  --cor-texto-suave: #5a4d40;
+  --cor-branco: #fffdfa;
+
+  /* Tipografia */
+  --fonte-titulo: "Georgia", "Times New Roman", serif;
+  --fonte-texto: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* Espaçamentos */
+  --espaco-xs: 0.5rem;
+  --espaco-sm: 1rem;
+  --espaco-md: 1.75rem;
+  --espaco-lg: 3rem;
+
+  /* Outros */
+  --raio: 12px;
+  --sombra: 0 6px 18px rgba(59, 36, 22, 0.15);
+  --transicao: 0.25s ease;
+  --largura-max: 1120px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset básico e regras globais
+   -------------------------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-texto);
+  color: var(--cor-texto);
+  background-color: var(--cor-creme);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  color: var(--cor-cafe-escuro);
+  margin-bottom: var(--espaco-sm);
+}
+
+h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: var(--espaco-sm);
+  color: var(--cor-texto-suave);
+}
+
+a {
+  color: var(--cor-cafe-medio);
+  text-decoration: none;
+  transition: color var(--transicao);
+}
+
+a:hover,
+a:focus {
+  color: var(--cor-destaque);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+/* Container reutilizável para centralizar conteúdo */
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--espaco-sm);
+}
+
+/* Acessibilidade: foco visível */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Cabeçalho e navegação (Flexbox #1)
+   -------------------------------------------------------------------------- */
+.cabecalho {
+  background-color: var(--cor-cafe-escuro);
+  color: var(--cor-creme);
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cabecalho__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--espaco-sm);
+  padding: var(--espaco-sm) var(--espaco-sm);
+  max-width: var(--largura-max);
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--espaco-xs);
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-creme);
+}
+
+.logo:hover,
+.logo:focus {
+  color: var(--cor-destaque);
+}
+
+.logo__icone {
+  font-size: 1.8rem;
+}
+
+/* Menu de navegação com Flexbox */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-md);
+  list-style: none;
+}
+
+.menu a {
+  color: var(--cor-creme);
+  font-weight: 600;
+  padding: var(--espaco-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color var(--transicao), color var(--transicao);
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: var(--cor-destaque);
+  border-bottom-color: var(--cor-destaque);
+}
+
+.menu a.ativo {
+  color: var(--cor-destaque);
+  border-bottom-color: var(--cor-destaque);
+}
+
+/* --------------------------------------------------------------------------
+   4. Seção hero / banner
+   -------------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(
+      rgba(59, 36, 22, 0.72),
+      rgba(59, 36, 22, 0.72)
+    ),
+    url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1400&q=60")
+      center / cover no-repeat;
+  color: var(--cor-branco);
+  text-align: center;
+  padding: var(--espaco-lg) var(--espaco-sm);
+}
+
+.hero h1 {
+  color: var(--cor-branco);
+}
+
+.hero p {
+  color: var(--cor-creme);
+  max-width: 640px;
+  margin: 0 auto var(--espaco-md) auto;
+  font-size: 1.1rem;
+}
+
+/* Botões */
+.botao {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: var(--cor-cafe-escuro);
+  font-weight: 700;
+  padding: var(--espaco-xs) var(--espaco-md);
+  border-radius: var(--raio);
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transicao), background-color var(--transicao);
+}
+
+.botao:hover,
+.botao:focus {
+  background-color: var(--cor-creme);
+  color: var(--cor-cafe-escuro);
+  transform: translateY(-2px);
+}
+
+.botao--secundario {
+  background-color: transparent;
+  border: 2px solid var(--cor-creme);
+  color: var(--cor-creme);
+}
+
+.botao--secundario:hover,
+.botao--secundario:focus {
+  background-color: var(--cor-creme);
+  color: var(--cor-cafe-escuro);
+}
+
+/* --------------------------------------------------------------------------
+   5. Conteúdo principal e seções
+   -------------------------------------------------------------------------- */
+.principal {
+  flex: 1;
+}
+
+.secao {
+  padding: var(--espaco-lg) 0;
+}
+
+.secao__cabecalho {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto var(--espaco-md) auto;
+}
+
+.secao--alt {
+  background-color: var(--cor-creme-escuro);
+}
+
+/* --------------------------------------------------------------------------
+   6. Cards (grid com Flexbox #2)
+   -------------------------------------------------------------------------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-md);
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--cor-branco);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px;
+  max-width: 360px;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(59, 36, 22, 0.25);
+}
+
+.card__imagem {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card__corpo {
+  padding: var(--espaco-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card__categoria {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: var(--cor-verde-cerrado);
+  color: var(--cor-branco);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: var(--espaco-xs);
+}
+
+.card__corpo p {
+  flex: 1;
+}
+
+.card__corpo .botao {
+  align-self: flex-start;
+  margin-top: var(--espaco-sm);
+}
+
+/* --------------------------------------------------------------------------
+   7. Listas estilizadas
+   -------------------------------------------------------------------------- */
+.lista-caracteristicas {
+  list-style: none;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.lista-caracteristicas li {
+  background-color: var(--cor-branco);
+  border-left: 5px solid var(--cor-destaque);
+  border-radius: var(--raio);
+  padding: var(--espaco-sm) var(--espaco-md);
+  margin-bottom: var(--espaco-sm);
+  box-shadow: var(--sombra);
+}
+
+.lista-caracteristicas li strong {
+  color: var(--cor-cafe-escuro);
+}
+
+/* Passos numerados (métodos de preparo) */
+.passos {
+  list-style: none;
+  counter-reset: passo;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.passos li {
+  position: relative;
+  background-color: var(--cor-branco);
+  border-radius: var(--raio);
+  padding: var(--espaco-sm) var(--espaco-sm) var(--espaco-sm) 3.5rem;
+  margin-bottom: var(--espaco-sm);
+  box-shadow: var(--sombra);
+  counter-increment: passo;
+}
+
+.passos li::before {
+  content: counter(passo);
+  position: absolute;
+  left: var(--espaco-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cor-cafe-medio);
+  color: var(--cor-branco);
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   8. Layout de destaque (texto + imagem, Flexbox)
+   -------------------------------------------------------------------------- */
+.destaque {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-lg);
+}
+
+.destaque__texto,
+.destaque__midia {
+  flex: 1 1 320px;
+}
+
+.destaque__midia img {
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+/* --------------------------------------------------------------------------
+   9. Página com conteúdo + aside
+   -------------------------------------------------------------------------- */
+.layout-conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-lg);
+  align-items: flex-start;
+}
+
+.layout-conteudo .conteudo-central {
+  flex: 3 1 480px;
+}
+
+.aside {
+  flex: 1 1 240px;
+  background-color: var(--cor-branco);
+  border-radius: var(--raio);
+  padding: var(--espaco-md);
+  box-shadow: var(--sombra);
+}
+
+.aside h3 {
+  border-bottom: 2px solid var(--cor-creme-escuro);
+  padding-bottom: var(--espaco-xs);
+}
+
+.aside ul {
+  padding-left: var(--espaco-sm);
+}
+
+.aside li {
+  margin-bottom: var(--espaco-xs);
+}
+
+/* --------------------------------------------------------------------------
+   10. Formulário
+   -------------------------------------------------------------------------- */
+.formulario {
+  background-color: var(--cor-branco);
+  border-radius: var(--raio);
+  padding: var(--espaco-md);
+  box-shadow: var(--sombra);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.campo {
+  margin-bottom: var(--espaco-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: 600;
+  margin-bottom: var(--espaco-xs);
+  color: var(--cor-cafe-escuro);
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.7rem;
+  border: 1px solid var(--cor-cafe-claro);
+  border-radius: var(--raio);
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: var(--cor-creme);
+  transition: border-color var(--transicao);
+}
+
+.campo input:hover,
+.campo textarea:hover,
+.campo select:hover {
+  border-color: var(--cor-cafe-medio);
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Rodapé
+   -------------------------------------------------------------------------- */
+.rodape {
+  background-color: var(--cor-cafe-escuro);
+  color: var(--cor-creme);
+  padding: var(--espaco-lg) 0 var(--espaco-md) 0;
+  margin-top: auto;
+}
+
+.rodape__conteudo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-lg);
+  justify-content: space-between;
+}
+
+.rodape__coluna {
+  flex: 1 1 220px;
+}
+
+.rodape h3 {
+  color: var(--cor-branco);
+}
+
+.rodape a {
+  color: var(--cor-creme);
+}
+
+.rodape a:hover,
+.rodape a:focus {
+  color: var(--cor-destaque);
+}
+
+.rodape ul {
+  list-style: none;
+}
+
+.rodape li {
+  margin-bottom: var(--espaco-xs);
+}
+
+.rodape__base {
+  text-align: center;
+  border-top: 1px solid rgba(245, 237, 225, 0.2);
+  margin-top: var(--espaco-md);
+  padding-top: var(--espaco-sm);
+  font-size: 0.9rem;
+  color: var(--cor-creme);
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsividade (media queries)
+   -------------------------------------------------------------------------- */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .cabecalho__conteudo {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu {
+    justify-content: center;
+    gap: var(--espaco-sm);
+  }
+
+  .secao {
+    padding: var(--espaco-md) 0;
+  }
+
+  .destaque,
+  .layout-conteudo {
+    gap: var(--espaco-md);
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    gap: var(--espaco-xs);
+  }
+
+  .card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .hero {
+    padding: var(--espaco-md) var(--espaco-sm);
+  }
+
+  .botao {
+    width: 100%;
+    text-align: center;
+  }
+}
